@@ -1,0 +1,24 @@
+{% extends 'basic.html' %}
+{% block body %}
+<div style="margin-left: 300px;">
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="">manager Name:</label>
+    <select name="manager" id="">
+        {% for i in users %}
+        {% if i.HR == user.username and i.is_manager %}
+        <option value="{{i.user}}">{{i.user}}</option>
+        {% endif %}
+        {% endfor %}
+    </select> <br>
+    <select name="manemp" id="">
+        {% for i in users %}
+        {% if i.manager == 'nothing' and i.is_employe %}
+        <option value="{{i.user}}">{{i.user}}</option>
+        {% endif %}
+        {% endfor %}
+    </select>
+    <input type="submit" name="" id="">
+</form>
+</div>
+{% endblock %}

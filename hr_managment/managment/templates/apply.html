@@ -1,0 +1,152 @@
+{% extends 'basic.html' %}
+
+<body>
+    {% block body %}
+    <div style="margin-left: 300px;">
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="">Days:</label>
+            <input type="text" name="leave"> <br>
+            <label for="">Select your manager:</label>
+            <select name="manager" id="">
+                <option value="{{prof.manager}}">{{prof.manager}}</option>
+            </select>
+            <input type="submit" name="" id="">
+        </form>
+        <h1>Applied leave </h1>
+
+
+        {% for i in user %}
+
+        {% if i.hr_approved == False and i.hr_reject == False %}
+        <table>
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td>:</td>
+                    <td>{{i.user}} </td>
+                </tr>
+                <tr>
+                    <td>Days</td>
+                    <td>:</td>
+                    <td>{{i.days}}</td>
+                </tr>
+
+                <tr>
+                    <td>Hr Approved</td>
+                    <td>:</td>
+                    <td>{{i.hr_approved}}</td>
+                </tr>
+                <tr>
+                    <td>manager Approved</td>
+                    <td>:</td>
+                    <td>{{i.manager_approve}}</td>
+                </tr>
+            </tbody>
+        </table> <br>
+
+        {% endif %}
+        {% endfor %}
+
+        </form>
+        <h1>approved leaves</h1>
+        {% for i in user %}
+
+        {% if i.hr_approved == True and i.manager_approve == True and i.hr_reject == False and i.manager_reject == False %}
+        <table>
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td>:</td>
+                    <td>{{i.user}} </td>
+                </tr>
+                <tr>
+                    <td>Days</td>
+                    <td>:</td>
+                    <td>{{i.days}}</td>
+                </tr>
+
+                <tr>
+                    <td>HR Approved</td>
+                    <td>:</td>
+                    <td>{{i.hr_approved}}</td>
+                </tr>
+                <tr>
+                    <td>manager Approved</td>
+                    <td>:</td>
+                    <td>{{i.manager_approve}}</td>
+                </tr>
+            </tbody>
+        </table> <br>
+        {% endif %}
+        {% endfor %}
+
+        <h1>HR approved leaves</h1>
+        {% for i in user %}
+
+        {% if i.hr_approved == True %}
+        <table>
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td>:</td>
+                    <td>{{i.user}} </td>
+                </tr>
+                <tr>
+                    <td>Days</td>
+                    <td>:</td>
+                    <td>{{i.days}}</td>
+                </tr>
+
+                <tr>
+                    <td>HR Approved</td>
+                    <td>:</td>
+                    <td>{{i.hr_approved}}</td>
+                </tr>
+                <tr>
+                    <td>manager Approved</td>
+                    <td>:</td>
+                    <td>{{i.manager_approve}}</td>
+                </tr>
+            </tbody>
+        </table> <br>
+        {% endif %}
+        {% endfor %}
+
+        <h1>rejected leaves</h1>
+        {% for i in user %}
+
+        {% if i.hr_reject == True or i.manager_reject == True %}
+        <table>
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td>:</td>
+                    <td>{{i.user}} </td>
+                </tr>
+                <tr>
+                    <td>Days</td>
+                    <td>:</td>
+                    <td>{{i.days}}</td>
+                </tr>
+
+                <tr>
+                    <td>HR Approved</td>
+                    <td>:</td>
+                    <td>{{i.hr_approved}}</td>
+                </tr>
+                <tr>
+                    <td>Manager Approved</td>
+                    <td>:</td>
+                    <td>{{i.manager_approve}}</td>
+                </tr>
+            </tbody>
+        </table> <br>
+        {% endif %}
+        {% endfor %}
+
+    </div>
+    {% endblock %}
+</body>
+
+

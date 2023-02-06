@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singup | Login</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="">First Name:</label>
+        <input type="text" name="fname" id=""><br>
+        <label for="">Last Name:</label>
+        <input type="text" name="lname" id=""><br>
+        <label for="">email</label>
+        <input type="text" name="email" id=""><br>
+        <label for="">UserName:</label>
+        <input type="text" name="uname" id=""><br>
+        <label for="">Password:</label>
+        <input type="text" name="passw" id=""><br>
+        
+        <label for="">Apply for:</label>
+        <select name="option" id="">
+            <option value="HR">HR</option>
+            <option value="Manager">Manager</option>
+            <option value="Employe">Employe</option>
+        </select><br>
+        <input type="submit" name="" id="">
+    </form>
+</body>
+</html>

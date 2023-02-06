@@ -1,0 +1,42 @@
+{% extends 'basic.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR | {{user.username}}</title>
+</head>
+<body>
+    <div style="margin-left: 300px;">
+    <form action=""method='post'>
+        {% csrf_token %}
+        <label for="">Project Name :</label>
+        <input type="text" name="pname" id=""><br>
+        <label for="">Start Date:</label>
+        <input type="date" name="stdate" id=""><br>
+        <label for="">End Date:</label>
+        <input type="date" name="endate" id=""><br>
+        <label for="">Employe</label>
+        <select name="employe" id="">
+            {% for i in users %}
+            <option value="{{i.username}}">{{i.username}}</option>
+            {% endfor %}
+        </select><br>
+        <label for="">Reporting Manager:</label>
+        <select name="manag" id="">
+            {% for i in profi %}
+            {% if i.is_manager == True %}
+            <option value="{{i.user}}">{{i.user}}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+        <input type="text" value="{{user.username}}" hidden name="user" id="">
+        <input type="submit" name="" id="">
+    
+    </form>
+</div>
+</body>
+</html>
+{% endblock %}

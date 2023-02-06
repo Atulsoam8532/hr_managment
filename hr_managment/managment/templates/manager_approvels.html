@@ -1,0 +1,93 @@
+{% extends 'basic.html' %}
+
+<body>
+    {% block body %}
+    <div style="margin-left: 300px;">
+    <h1>HR approved Leave</h1>    
+{% for i in leave %}
+{% for j in hr %}
+{% if i.user == j.user and i.hr_approved == True and i.manager_approve == False and i.manager_reject == False %}
+<table>
+    <tbody>
+        <tr>
+            <td>Name</td>
+            <td>:</td>
+            <td>{{j.user}} </td>
+        </tr>
+        <tr>
+            <td>Days</td>
+            <td>:</td>
+            <td>{{i.days}}</td>
+        </tr>
+       
+        <tr>
+            <td>Approved</td>
+            <td>:</td>
+            <td>{{i.manager_approve}}</td>
+        </tr>
+    </tbody>
+</table> <br>
+<a href="{% url 'manager_leave_approved' i.id %}">Approve</a>
+<a href="{% url 'manager_leave_reject' i.id %}">Reject</a>
+{% endif %}
+{% endfor %}
+{% endfor %}
+    </form>
+    <h1>approved leaves</h1>
+    {% for i in leave %}
+{% for j in hr %}
+{% if i.user == j.user and i.manager_approve == True %}
+<table>
+    <tbody>
+        <tr>
+            <td>Name</td>
+            <td>:</td>
+            <td>{{j.user}} </td>
+        </tr>
+        <tr>
+            <td>Days</td>
+            <td>:</td>
+            <td>{{i.days}}</td>
+        </tr>
+       
+        <tr>
+            <td>Approved</td>
+            <td>:</td>
+            <td>{{i.hr_approved}}</td>
+        </tr>
+    </tbody>
+</table> <br>
+{% endif %}
+{% endfor %}
+{% endfor %}
+<h1>rejected leaves</h1>
+{% for i in leave %}
+{% for j in hr %}
+{% if i.user == j.user and i.manager_reject == True %}
+<table>
+    <tbody>
+        <tr>
+            <td>Name</td>
+            <td>:</td>
+            <td>{{j.user}} </td>
+        </tr>
+        <tr>
+            <td>Days</td>
+            <td>:</td>
+            <td>{{i.days}}</td>
+        </tr>
+       
+        <tr>
+            <td>Approved</td>
+            <td>:</td>
+            <td>{{i.hr_approved}}</td>
+        </tr>
+    </tbody>
+</table> <br>
+{% endif %}
+{% endfor %}
+{% endfor %}
+</div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'basic.html' %}
+{% block body %}
+<div style="margin-left: 300px;">
+    <ul>
+        {% for i in emp %}
+        <table>
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td>:</td>
+                    <td>{{i.user}} </td>
+                </tr>
+                <tr>
+                    <td>HR</td>
+                    <td>:</td>
+                    <td>{{i.HR}}</td>
+                </tr>
+               
+                <tr>
+                    <td>Manager</td>
+                    <td>:</td>
+                    <td>{{i.manager}}</td>
+                </tr>
+               
+                
+            </tbody>
+        </table> <br>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

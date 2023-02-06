@@ -1,0 +1,33 @@
+{% extends 'basic.html' %}
+{% block body %}
+<div style="margin-left: 300px;">
+{% for i in result %}
+
+        <table>
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td>:</td>
+                    <td>{{i.user}} </td>
+                </tr>
+                <tr>
+                    <td>HR</td>
+                    <td>:</td>
+                    <td>{{i.HR}}</td>
+                </tr>
+               
+                <tr>
+                    <td>Manager</td>
+                    <td>:</td>
+                    <td>{{i.manager}}</td>
+                </tr>
+               
+                
+            </tbody>
+        </table> <br>
+        <a href="{% url 'view_emp' i.id %}">view Employe</a>
+        <a href="{% url 'edit_emp' i.id %}">Edit Details</a>
+        
+{% endfor %}
+</div>
+{% endblock %}

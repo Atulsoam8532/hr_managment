@@ -1,0 +1,47 @@
+{% extends 'basic.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="margin-left: 300px;">
+    <h1>Add employe under you</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="">Employe Name:</label>
+        <select name="employe" id="">
+            {% for i in users %}
+            {% if i.HR == 'nothing' and i.is_employe %}
+            <option value="{{i.user}}">{{i.user}}</option>
+            {% endif %}
+            {% endfor %}
+        </select> <br>
+
+
+        <h2>Add manager under you</h2>
+
+
+        <label for="">Manager Name:</label>
+        <select name="manag" id="">
+            {% for i in users %}
+            {% if i.HR == 'nothing' and i.is_manager %}
+            <option value="{{i.user}}">{{i.user}}</option>
+            {% endif %}
+            {% endfor %}
+        </select> <br>
+        <input type="submit" value="Add" name="" id="">
+    </form>
+    <h1>Add employe under manager</h1>
+    <a href="{% url 'manemp' %}">Add employe under manager</a>
+</div>
+</body>
+
+</html>
+{% endblock %}

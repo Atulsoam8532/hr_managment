@@ -1,0 +1,24 @@
+{% extends 'basic.html' %}
+{% block body %}
+<div style="margin-left: 300px;">
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="">First Name</label><br>
+        <input type="text" name="fname" value="{{us.first_name}}" id=""><br>
+        <label for="">Last Name</label><br>
+        <input type="text" name="lname" value="{{us.last_name}}" id=""><br>
+        <label for="">Email</label><br>
+        <input type="text" name="email" value="{{us.email}}" id=""><br>
+        <label for="">Username</label><br>
+        <input type="text" name="email" value="{{us.username}}" id=""><br>
+        <label for="">Approved User</label><br>
+        <input type="text" name="" value="{{profile.is_approved}}" disabled id=""><br>
+        <label for="">HR</label><br>
+        <input type="text" name="" value="{{profile.HR}}" disabled id=""> <br>
+        <label for="">Manager</label><br>
+        <input type="text" name="" value="{{profile.manager}}" disabled id=""><br>
+        <input type="submit" name="" id="">
+    </form>
+</div>
+{% endblock %}

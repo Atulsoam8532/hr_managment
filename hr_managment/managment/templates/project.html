@@ -1,0 +1,9 @@
+{% extends 'basic.html' %}
+{% block body %}
+<div style="margin-left: 300px;">
+    {% for i in proj %}
+    <h1>you have been align to '{{i.pro_name}}' project</h1>
+    <h3>The Project will start from {{i.start_date}} and end from {{i.end_date}}</h3>
+    {% endfor %}
+</div>
+{% endblock %}

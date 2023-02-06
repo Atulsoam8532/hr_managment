@@ -1,0 +1,41 @@
+{% extends 'basic.html' %}
+
+{% block body %}
+<div style="margin-left: 300px;">
+    <ul>
+        <table>
+            <tbody>
+                <tr>
+                    <td>first-Name</td>
+                    <td>:</td>
+                    <td>{{us.first_name}} </td>
+                </tr>
+                <tr>
+                    <td>last-Name</td>
+                    <td>:</td>
+                    <td>{{us.last_name}} </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td>{{us.email}} </td>
+                </tr>
+                <tr>
+                    <td>HR</td>
+                    <td>:</td>
+                    <td>{{empo.HR}}</td>
+                </tr>
+               
+                <tr>
+                    <td>Manager</td>
+                    <td>:</td>
+                    <td>{{empo.manager}}</td>
+                </tr>
+               
+                
+            </tbody>
+        </table> <br>
+        
+    </ul>
+</div>
+{% endblock %}
